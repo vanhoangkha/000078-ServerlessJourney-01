@@ -1,0 +1,92 @@
+[
+{
+	"uri": "/3-write-data-to-dynaomodb/3-1-create-dynamodb-table/",
+	"title": "Create DynamoDB table",
+	"tags": [],
+	"description": "",
+	"content": " Open DynamoDB console  Click Create table  Enter table name: Books   Enter parition key: id   Scroll down to Table settings pattern, select Customize settings   Then, select On-demand   Scroll to the bottom, click Create table So you have created the Books table  "
+},
+{
+	"uri": "/2-resize-image-function/2-1-create-lambda-function/",
+	"title": "Create resize image Lambda function",
+	"tags": [],
+	"description": "",
+	"content": " Open AWS Lambda console  Click Create function button  Enter function name, such as: resize-image   Choose Node.js 16.x for Runtime Click Create function button   Download source code file to your device  \r\rSource code\r\r\rfunction.zip\r\r(8382 ko)\r\r\r\rClick Upload from button   Choose .zip file   Click Upload button   Then select the downloaded source code file Click Save   Next, add environment variables to adjust the width and height of the image   Click Configuration tab Click Environment variables on the left menu Click Edit   Click Add environment variable, then add the following environment variables:   WIDTH: enter the new width of the photo, such as 200px. HEIGHT: enter the new hight of the photo, such as 280px. DES_BUCKET: S3 bucket name to store the changed image, book-image-resize-storage.  Then, click Save So we have completed the step of creating a Lambda function and configuring the environment variables for it. Next step, we will create an S3 bucket to store uploaded and edited images.\n"
+},
+{
+	"uri": "/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Overview This is series about Serverless. To start, let\u0026rsquo;s learn about what Serverless is, and what AWS Lambda is. Serverless is one of the cloud application development models. Cloud provides users with 4 development models as follows:\n IaaS (Infrastructure as a Service) PaaS (Platform as a Service) CaaS (Container as a Service) FaaS (Function as a Service)   Infrastructure as a Service\nThis is the most common model when using the cloud, you may have used it every day without noticing. In this model, Cloud developers will expose APIs that interact with the underlying virtualized platform, such as APIs that interact with virtual machines, and APIs that interact with storage, \u0026hellip; to be able to create and manage infrastructure on Cloud. For example, AWS Cloud exposes EC2-related APIs, allowing you to easily create and manage EC2 ourselves using the Web Console or AWS CLI. In this model, you will create and manage your infrastructure and expansion.\nPlatform as a Service\nThis is a development model where the cloud will provide you with a Platform Framework for faster application development. For example, to deploy a web application in the cloud, you first need to create EC2 (virtual machine), then configure the security group so that traffic can go into EC2, then deploy the application on EC2, and many settings. So cloud developers provide platforms to do it faster. For example, AWS has AWS Elastic Beanstalk, which is a Platform that allows users to easily deploy a web application, with just a few simple mouse clicks on the Web Console to get a web application.\nSoftware as a Service\nThis model is simply developing a container-based application and has a tool to manage our containers, such as Kubernetes. AWS offers AWS EKS for developing applications on the CaaS model.\nFunction as a Service\nFinally and at the lowest level, the cloud allows users to develop applications based only on Functions, without the need to create and manage complex infrastructure, just manage functions. These functions are automatically scaled without any configuration, which is a key component of our Serverless model.\nSo Serverless is a model of developing applications and services without caring about the server. A Serverless application does not need to care about operating system resource allocation and management and ignores upgrade and security issues.\nBenefits of Serverless\n No need to manage servers: You don\u0026rsquo;t need to provision or maintain any servers. No software or runtime required to install, upgrade or administer. Scalable flexibility and high availability: FaaS will automatically scale according to traffic, without much configuration, unless the user wants it to scale in a certain way. Cost savings: You will only need to pay for each triggered function, pay as much as you use. Support many different languages: can use many different languages to write FaaS  Disadvantages of Serverless\n Hard to debug. Cold starts: takes a while if the function is triggered for the first time, or the function is rarely requested, then it takes a long time to run again. Difficult to organize source code: because each function will be deployed separately, the way to organize source code will be difficult or easy depending on different languages. Difficult to design a local dev environment.  AWS Lambda AWS Lambda is an AWS service that allows you to run and manage functions. This is the main component of the Serverless model. In addition to AWS Lambda, AWS also provides us with the following services to build a Serverless model:\n S3 we use to save images API gateway for us to build REST API DynamoDB for databases Cognito for user authentication SQS used for queues SNS for notifications  AWS Lambda is designed for event-driven architecture, our code will be triggered based on an event, for example a client request to an API, all triggering processes are independent of each other and only pay per times the function is triggered and run. Compared to EC2, we have to pay by the hour, even if our code on EC2 does not process any requests for the user, we still have to pay, and Lambda does not.\n"
+},
+{
+	"uri": "/",
+	"title": "Serverless - Lambda interact with S3 và DynamoDB",
+	"tags": [],
+	"description": "",
+	"content": "Serverless - Lambda interact with S3 và DynamoDB Overview This is a series about Serverless. AWS provides technologies for running code, managing data, and integrating applications, all without managing servers. Those technologies serve users to create applications under the Serverless model. Serverless applications start with AWS Lambda, save data with DynamoDB, receive user requests with API Gateway, host static web with S3/AWS Amplify Console, \u0026hellip;.\nExample of a web application using the Serverless model with the cloud: In the first post of this series, we\u0026rsquo;ll learn the basics of Serverless and practice creating functions with Lambda that are triggered from S3 and write data to a DynamoDB table.\nContent  Introduce Create Lambda function to resize images Create Lambda function to write data to DynamoDB  "
+},
+{
+	"uri": "/2-resize-image-function/2-2-create-s3-bucket/",
+	"title": "Create S3 bucket",
+	"tags": [],
+	"description": "",
+	"content": "In this part, we will create two S3 buckets:\n Bucket book-image-store: to store uploaded image Bucket book-image-resize-store: to store iamge after resize   Open Amazon S3 console  Click Create bucket  Enter bucket name, book-image-store   Choose the region closest to you.   Uncheck access block - Block all public access   Check the box - I acknowledge that the current settings might result in this bucket and the objects within becoming public   Click Create bucket  To create bucket - book-image-resize-store, repeat steps 1 to 5. After creating the two buckets, we add the trigger for the lambda function created earlier   Click Add Trigger   Enter S3 and select S3 service  Select bucket that trigger lambda, book-image-store   Select All object create events for Event type Check the box - I acknowledge that using\u0026hellip;. as shown below Click Add   Check result after add trigger for Lambda function   "
+},
+{
+	"uri": "/2-resize-image-function/",
+	"title": "Resize image",
+	"tags": [],
+	"description": "",
+	"content": "In this section we will create a Lambda Nodejs function to resize the image after uploading the image to the S3 bucket, save the edited image to a new S3 bucket, and delete the old image.\nContent  Create Lambda function Create S3 bucket Create policy to access S3 Test Lambda function operation  "
+},
+{
+	"uri": "/3-write-data-to-dynaomodb/3-2-write-data-by-lambda/",
+	"title": "Write data by Lambda function",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we create Lambda function to write data to created DynamoDB table.\n Open AWS Lambda console  Click Create function  Enter function name: book_create   Select Python 3.9 for Runtime Click Create function   Copy the below code into tab lambda_function  import boto3 import json client = boto3.resource(\u0026#39;dynamodb\u0026#39;) def lambda_handler(event, context): book_item = event[\u0026#34;body\u0026#34;] error = None try: table = client.Table(\u0026#39;Books\u0026#39;) table.put_item(Item = book_item) except Exception as e: error = e if error is None: response = { \u0026#39;statusCode\u0026#39;: 200, \u0026#39;body\u0026#39;: \u0026#39;writing to dynamoDB successfully!\u0026#39;, \u0026#39;headers\u0026#39;: { \u0026#39;Content-Type\u0026#39;: \u0026#39;application/json\u0026#39; }, } else: response = { \u0026#39;statusCode\u0026#39;: 400, \u0026#39;body\u0026#39;: \u0026#39;writing to dynamoDB fail!\u0026#39;, \u0026#39;headers\u0026#39;: { \u0026#39;Content-Type\u0026#39;: \u0026#39;application/json\u0026#39; }, } return response  Click Deploy   Next, add additional permissions for Lambda access to DynamoDB   Click to tab Configure Click Permissions on the left menu Click to role the function executing  Click Attach permissions Select Attach policies  Enter dynamoDB to search policy. Check to policy: AmazonDynamoDBFullAccess Click Attach policies   Create a event to test function operation   Click to tab Test Enter event name, such as: test_1 Enter the below data into Event JSON  { \u0026#34;body\u0026#34;: { \u0026#34;id\u0026#34;: \u0026#34;1\u0026#34;, \u0026#34;name\u0026#34;: \u0026#34;Java\u0026#34;, \u0026#34;author\u0026#34;: \u0026#34;Alex\u0026#34;, \u0026#34;category\u0026#34;: \u0026#34;IT\u0026#34;, \u0026#34;price\u0026#34;: \u0026#34;10.89\u0026#34;, \u0026#34;description\u0026#34;: \u0026#34;This book guide to create Java web basic\u0026#34;, \u0026#34;image\u0026#34;: \u0026#34;https://book-image-resize-store.s3.ap-southeast-2.amazonaws.com/Java.jpg\u0026#34; } }  Click Save Click Test   Navigate to DynamoDB console   Click Update settings on the left menu Check to Books Click Explore table items   You will get all the data from the table.   "
+},
+{
+	"uri": "/2-resize-image-function/2-3-create-policy-access-s3/",
+	"title": "Create Policy for Lambda function",
+	"tags": [],
+	"description": "",
+	"content": "In this part, we will create a Policy that grants the Lambda function permission to get, write, and delete objects in the S3 bucket.\n Navigate to console of created in step 1 Lambda function.   In tab Configuration, click Permissions Click on the role being executed by the function   Click Add permissions   Select Attach policies   Click Create policy  Click Choose a service  Enter S3, then select S3  Click Action, expand Read in Access level   Check to GetObject permission   Then, expand Write   Check to DeleteObject permission   In Resource, click Add ARN to specify resources.  Enter bucket name: book-image-store   Check to Any to allow permissions for all objects in the bucket Click Add   Click Add additional permissions  Repeat steps 4 and 5   Then, expand Write, check to PutObject permission   Repeat steps 8 and 9 with bucket name is book-image-resize-store  Click Next tags  Click Next review Enter policy name, such as: LambdaResizeImageS3Policy   Review policy information and click Create policy   Back to adding policy for Lambda function screen, enter the name of the policy we just created.   Check to the policy: LambdaResizeImageS3Policy Click Attach policies We have finished granting the Lambda function read, write, and delete permissions from the S3 bucket. The next step is to test the Lambda function working when uploading an image.  "
+},
+{
+	"uri": "/3-write-data-to-dynaomodb/",
+	"title": "Write data to DynamoDB",
+	"tags": [],
+	"description": "",
+	"content": "In this section, we will create a DynamoDB Table, then create a Lambda function by Python to write data to it.\nNội dung  Create DynamoDB table Write data by Lambda function  "
+},
+{
+	"uri": "/4-cleanup/",
+	"title": "Clean up",
+	"tags": [],
+	"description": "",
+	"content": " Delete DynamoDB table   Open DynamoDB console Select Tables on the left menu Select Books table Click Delete Enter delete and click Delete table  Delete S3 bucket   Open S3 console Select book-image-resize-store bucket Click Empty Enter permanently delete and click Empty Select book-image-resize-store bucket Click Delete Enter book-image-resize-store and click Delete Select book-image-store bucket Click Delete Enter book-image-store and click Delete  Delete Lambda function   Open AWS Lambda console Select book_create function Click Actions Select Delete Enter delete and click Delete Similar to resize_image function If you continue with workshop 2 of the series, you can skip the step of deleting the Lambda function.\n\r  "
+},
+{
+	"uri": "/2-resize-image-function/2-4-test-lambda-function/",
+	"title": "Test Lambda function operation",
+	"tags": [],
+	"description": "",
+	"content": " Navigate to S3 bucket: book-image-store   Click Upload   Click Add files  Select image to upload, then click Upload  Wait for the image to be uploaded successfully, then click Close  Wait for the Lambda function running, then check if the image has been deleted or not  Navigate to other bucket - book-image-resize-store   Click to image file   Click Object URL to download image  But error occurs - Access Denied.  To download image, need add policy for bucket to allow public access.   Back to bucket, select Permission Click Edit in Bucket policy  Copy the below json data into Policy  { \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Sid\u0026#34;: \u0026#34;PublicReadGetObject\u0026#34;, \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::book-image-resize-store/*\u0026#34; } ] }  Click Save changes   Then, repeat steps 6 and 7 to download image to local to download an image to your device to compare it with the one you\u0026rsquo;ve already uploaded. So Lambda resizes function is working properly.  "
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
