@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.97.3" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Introduction :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1674043994" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1674043994" rel="stylesheet">
-    <link href="/css/hybrid.css?1674043994" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1674043994" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1674043994" rel="stylesheet">
-    <link href="/css/auto-complete.css?1674043994" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1674043994" rel="stylesheet">
-    <link href="/css/theme.css?1674043994" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1674043994" rel="stylesheet">
+    <link href="/css/nucleus.css?1674613282" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674613282" rel="stylesheet">
+    <link href="/css/hybrid.css?1674613282" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674613282" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674613282" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674613282" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674613282" rel="stylesheet">
+    <link href="/css/theme.css?1674613282" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674613282" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1674043994" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1674613282" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1674043994"></script>
+    <script src="/js/jquery-3.3.1.min.js?1674613282"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1674043994"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1674043994"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1674613282"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674613282"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1674043994"></script>
+<script type="text/javascript" src="/js/search.js?1674613282"></script>
 
     
   </div>
@@ -550,49 +550,14 @@
 
 
 	<h4 id="overview">Overview</h4>
-<p>This is series about Serverless. To start, let&rsquo;s learn about what Serverless is, and what AWS Lambda is. Serverless is one of the cloud application development models. 
-Cloud provides users with 4 development models as follows:</p>
-<ul>
-<li>IaaS (Infrastructure as a Service)</li>
-<li>PaaS (Platform as a Service)</li>
-<li>CaaS (Container as a Service)</li>
-<li>FaaS (Function as a Service)
-<img src="/images/1-Introduce.png?featherlight=false&amp;width=90pc" alt="CloudComputingServicesModel"></li>
-</ul>
-<p><strong>Infrastructure as a Service</strong></p>
-<p>This is the most common model when using the cloud, you may have used it every day without noticing. In this model, Cloud developers will expose APIs that interact with the underlying virtualized platform, such as APIs that interact with virtual machines, and APIs that interact with storage, &hellip; to be able to create and manage infrastructure on Cloud. For example, AWS Cloud exposes EC2-related APIs, allowing you to easily create and manage EC2 ourselves using the Web Console or AWS CLI. In this model, you will create and manage your infrastructure and expansion.</p>
-<p><strong>Platform as a Service</strong></p>
-<p>This is a development model where the cloud will provide you with a Platform Framework for faster application development. For example, to deploy a web application in the cloud, you first need to create EC2 (virtual machine), then configure the security group so that traffic can go into EC2, then deploy the application on EC2, and many settings. So cloud developers provide platforms to do it faster. For example, AWS has AWS Elastic Beanstalk, which is a Platform that allows users to easily deploy a web application, with just a few simple mouse clicks on the Web Console to get a web application.</p>
-<p><strong>Software as a Service</strong></p>
-<p>This model is simply developing a container-based application and has a tool to manage our containers, such as Kubernetes. AWS offers AWS EKS for developing applications on the CaaS model.</p>
-<p><strong>Function as a Service</strong></p>
-<p>Finally and at the lowest level, the cloud allows users to develop applications based only on Functions, without the need to create and manage complex infrastructure, just manage functions. These functions are automatically scaled without any configuration, which is a key component of our Serverless model.</p>
-<p>So Serverless is a model of developing applications and services without caring about the server. A Serverless application does not need to care about operating system resource allocation and management and ignores upgrade and security issues.</p>
-<p><strong>Benefits of Serverless</strong></p>
-<ul>
-<li>No need to manage servers: You don&rsquo;t need to provision or maintain any servers. No software or runtime required to install, upgrade or administer.</li>
-<li>Scalable flexibility and high availability: FaaS will automatically scale according to traffic, without much configuration, unless the user wants it to scale in a certain way.</li>
-<li>Cost savings: You will only need to pay for each triggered function, pay as much as you use.</li>
-<li>Support many different languages: can use many different languages to write FaaS</li>
-</ul>
-<p><strong>Disadvantages of Serverless</strong></p>
-<ul>
-<li>Hard to debug.</li>
-<li>Cold starts: takes a while if the function is triggered for the first time, or the function is rarely requested, then it takes a long time to run again.</li>
-<li>Difficult to organize source code: because each function will be deployed separately, the way to organize source code will be difficult or easy depending on different languages.</li>
-<li>Difficult to design a local dev environment.</li>
-</ul>
+<p>Before starting to write the first Lambda function, let&rsquo;s learn through the concept of Serverless, and Lambda.</p>
+<h4 id="serverless">Serverless</h4>
+<p>Serverless is a basic concept that refers to a group of services that are fully managed by AWS. When using these services, you will not need to care about basic daily infrastructure administration tasks such as updating security patches, managing device portfolios, managing assets&hellip;.</p>
+<p>There are many services planned into the Serverless cluster on AWS such as serverless databases like Aurora Serverless, Redshift Serverless, serverless compute like AWS Lambda.</p>
 <h4 id="aws-lambda">AWS Lambda</h4>
-<p>AWS Lambda is an AWS service that allows you to run and manage functions. This is the main component of the Serverless model. In addition to AWS Lambda, AWS also provides us with the following services to build a Serverless model:</p>
-<ul>
-<li>S3 we use to save images</li>
-<li>API gateway for us to build REST API</li>
-<li>DynamoDB for databases</li>
-<li>Cognito for user authentication</li>
-<li>SQS used for queues</li>
-<li>SNS for notifications</li>
-</ul>
-<p>AWS Lambda is designed for event-driven architecture, our code will be triggered based on an event, for example a client request to an API, all triggering processes are independent of each other and only pay per times the function is triggered and run. Compared to EC2, we have to pay by the hour, even if our code on EC2 does not process any requests for the user, we still have to pay, and Lambda does not.</p>
+<p>Lambda is a serverless compute service that allows you to run applications without initializing or managing servers. Lambda runs on a highly available infrastructure platform and does all of the compute resource management, including server and operating system maintenance, capacity provisioning, auto-scaling, and logging. . With Lambda, you can develop almost any kind of backend application or service.</p>
+<p>You organize your application into <strong>Lambda functions</strong>. Lambda functions run only when needed and are capable of automatically scaling, from a few requests per day to thousands per second. You only pay for the compute time you use — AWS won&rsquo;t charge when your application is not running.</p>
+<p>We&rsquo;ll also start our Serverless Journey with a Lambda function that first resizes the image after uploading it to the S3 bucket, saves the edited image to a new S3 bucket, and deletes the old image.</p>
 
 
 
@@ -818,19 +783,19 @@ Cloud provides users with 4 development models as follows:</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1674043994"></script>
-    <script src="/js/perfect-scrollbar.min.js?1674043994"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1674043994"></script>
-    <script src="/js/jquery.sticky.js?1674043994"></script>
-    <script src="/js/featherlight.min.js?1674043994"></script>
-    <script src="/js/highlight.pack.js?1674043994"></script>
+    <script src="/js/clipboard.min.js?1674613282"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674613282"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674613282"></script>
+    <script src="/js/jquery.sticky.js?1674613282"></script>
+    <script src="/js/featherlight.min.js?1674613282"></script>
+    <script src="/js/highlight.pack.js?1674613282"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1674043994"></script>
-    <script src="/js/learn.js?1674043994"></script>
-    <script src="/js/hugo-learn.js?1674043994"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674613282"></script>
+    <script src="/js/learn.js?1674613282"></script>
+    <script src="/js/hugo-learn.js?1674613282"></script>
 
-    <link href="/mermaid/mermaid.css?1674043994" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1674043994"></script>
+    <link href="/mermaid/mermaid.css?1674613282" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1674613282"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
