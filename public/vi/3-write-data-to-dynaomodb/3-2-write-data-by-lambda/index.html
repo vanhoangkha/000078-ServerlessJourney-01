@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.97.3" />
+    <meta name="generator" content="Hugo 0.69.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Ghi dữ liệu với Lambda function :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1674613335" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1674613335" rel="stylesheet">
-    <link href="/css/hybrid.css?1674613335" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1674613335" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1674613335" rel="stylesheet">
-    <link href="/css/auto-complete.css?1674613335" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1674613335" rel="stylesheet">
-    <link href="/css/theme.css?1674613335" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1674613335" rel="stylesheet">
+    <link href="/css/nucleus.css?1676370779" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1676370779" rel="stylesheet">
+    <link href="/css/hybrid.css?1676370779" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1676370779" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1676370779" rel="stylesheet">
+    <link href="/css/auto-complete.css?1676370779" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1676370779" rel="stylesheet">
+    <link href="/css/theme.css?1676370779" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1676370779" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1674613335" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1676370779" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1674613335"></script>
+    <script src="/js/jquery-3.3.1.min.js?1676370779"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1674613335"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1674613335"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1676370779"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1676370779"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1674613335"></script>
+<script type="text/javascript" src="/js/search.js?1676370779"></script>
 
     
   </div>
@@ -318,7 +318,7 @@
   
     
     <li data-nav-id="/vi/3-write-data-to-dynaomodb/3-2-write-data-by-lambda/" title="Ghi dữ liệu với Lambda function" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -457,7 +457,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>25-01-2023</font></i>
+        <i><font color=orange>14-02-2023</font></i>
     </left>
     <left>
         <br>
@@ -562,35 +562,35 @@
 <ol start="4">
 <li>Sao chép đoạn code dưới đây vào tab <strong>lambda_function</strong></li>
 </ol>
-<pre tabindex="0"><code>import boto3
+<pre><code>import boto3
 import json
 
-client = boto3.resource(&#39;dynamodb&#39;)
+client = boto3.resource('dynamodb')
     
 def lambda_handler(event, context):
     
-    book_item = event[&#34;body&#34;]
+    book_item = event[&quot;body&quot;]
     error = None
     try:
-        table = client.Table(&#39;Books&#39;)
+        table = client.Table('Books')
         table.put_item(Item = book_item)
     except Exception as e:
         error = e
         
     if error is None:
         response = {
-            &#39;statusCode&#39;: 200,
-            &#39;body&#39;: &#39;writing to dynamoDB successfully!&#39;,
-            &#39;headers&#39;: {
-                &#39;Content-Type&#39;: &#39;application/json&#39;
+            'statusCode': 200,
+            'body': 'writing to dynamoDB successfully!',
+            'headers': {
+                'Content-Type': 'application/json'
             },
         }
     else:
         response = {
-            &#39;statusCode&#39;: 400,
-            &#39;body&#39;: &#39;writing to dynamoDB fail!&#39;,
-            &#39;headers&#39;: {
-                &#39;Content-Type&#39;: &#39;application/json&#39;
+            'statusCode': 400,
+            'body': 'writing to dynamoDB fail!',
+            'headers': {
+                'Content-Type': 'application/json'
             },
         }
   
@@ -623,15 +623,15 @@ def lambda_handler(event, context):
 <li>Nhập tên cho sự kiện, ví dụ: <strong>test_1</strong></li>
 <li>Nhập đoạn dữ liệu sau vào <strong>Event JSON</strong></li>
 </ul>
-<pre tabindex="0"><code>{
-  &#34;body&#34;: {
-    &#34;id&#34;: &#34;1&#34;,
-    &#34;name&#34;: &#34;Java&#34;,
-    &#34;author&#34;: &#34;Alex&#34;,
-    &#34;category&#34;: &#34;IT&#34;,
-    &#34;price&#34;: &#34;10.89&#34;,
-    &#34;description&#34;: &#34;This book guide to create Java web basic&#34;,
-    &#34;image&#34;: &#34;https://book-image-resize-store.s3.ap-southeast-2.amazonaws.com/Java.jpg&#34;
+<pre><code>{
+  &quot;body&quot;: {
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;name&quot;: &quot;Java&quot;,
+    &quot;author&quot;: &quot;Alex&quot;,
+    &quot;category&quot;: &quot;IT&quot;,
+    &quot;price&quot;: &quot;10.89&quot;,
+    &quot;description&quot;: &quot;This book guide to create Java web basic&quot;,
+    &quot;image&quot;: &quot;https://book-image-resize-store.s3.ap-southeast-2.amazonaws.com/Java.jpg&quot;
   }
 }
 </code></pre><ul>
@@ -884,19 +884,19 @@ def lambda_handler(event, context):
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1674613335"></script>
-    <script src="/js/perfect-scrollbar.min.js?1674613335"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1674613335"></script>
-    <script src="/js/jquery.sticky.js?1674613335"></script>
-    <script src="/js/featherlight.min.js?1674613335"></script>
-    <script src="/js/highlight.pack.js?1674613335"></script>
+    <script src="/js/clipboard.min.js?1676370779"></script>
+    <script src="/js/perfect-scrollbar.min.js?1676370779"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1676370779"></script>
+    <script src="/js/jquery.sticky.js?1676370779"></script>
+    <script src="/js/featherlight.min.js?1676370779"></script>
+    <script src="/js/highlight.pack.js?1676370779"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1674613335"></script>
-    <script src="/js/learn.js?1674613335"></script>
-    <script src="/js/hugo-learn.js?1674613335"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1676370779"></script>
+    <script src="/js/learn.js?1676370779"></script>
+    <script src="/js/hugo-learn.js?1676370779"></script>
 
-    <link href="/mermaid/mermaid.css?1674613335" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1674613335"></script>
+    <link href="/mermaid/mermaid.css?1676370779" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1676370779"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
