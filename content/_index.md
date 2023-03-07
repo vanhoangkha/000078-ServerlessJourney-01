@@ -1,16 +1,17 @@
 ---
-title : "Serverless - Lambda interact with S3 và DynamoDB"
+title : "Serverless - Lambda interact with S3 and DynamoDB"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
 ---
-# Serverless - Lambda interact with S3 và DynamoDB
+# Serverless - Lambda interact with S3 and DynamoDB
 
 #### Overview
 
 This is a series about Serverless. AWS provides technologies for running code, managing data, and integrating applications, all without managing servers. Those technologies serve users to create applications under the Serverless model. Serverless applications start with AWS Lambda, save data with DynamoDB, receive user requests with API Gateway, host static web with S3/AWS Amplify Console, ....
 
 Example of a web application using the Serverless model with the cloud:
+
 ![SeverlessExample](/images/Arch-Diagrams_Serverless-Category-Page_WebApp.png?featherlight=false&width=90pc)
 
 In the first post of this series, we'll learn the basics of Serverless and practice creating functions with Lambda that are triggered from S3 and write data to a DynamoDB table.

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/vi/1-introduce/</loc>
     <xhtml:link
@@ -14,9 +13,7 @@
                 hreflang="vi"
                 href="/vi/1-introduce/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/</loc>
     <xhtml:link
                 rel="alternate"
@@ -28,9 +25,7 @@
                 hreflang="vi"
                 href="/vi/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-write-data-to-dynaomodb/3-1-create-dynamodb-table/</loc>
     <xhtml:link
                 rel="alternate"
@@ -42,9 +37,7 @@
                 hreflang="vi"
                 href="/vi/3-write-data-to-dynaomodb/3-1-create-dynamodb-table/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-resize-image-function/2-1-create-lambda-function/</loc>
     <xhtml:link
                 rel="alternate"
@@ -56,9 +49,7 @@
                 hreflang="vi"
                 href="/vi/2-resize-image-function/2-1-create-lambda-function/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/3-write-data-to-dynaomodb/3-2-write-data-by-lambda/</loc>
     <xhtml:link
                 rel="alternate"
@@ -70,23 +61,7 @@
                 hreflang="vi"
                 href="/vi/3-write-data-to-dynaomodb/3-2-write-data-by-lambda/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/2-resize-image-function/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-resize-image-function/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-resize-image-function/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-resize-image-function/2-2-create-s3-bucket/</loc>
     <xhtml:link
                 rel="alternate"
@@ -98,9 +73,19 @@
                 hreflang="vi"
                 href="/vi/2-resize-image-function/2-2-create-s3-bucket/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/2-resize-image-function/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-resize-image-function/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-resize-image-function/"
+                />
+  </url><url>
     <loc>/vi/3-write-data-to-dynaomodb/</loc>
     <xhtml:link
                 rel="alternate"
@@ -112,9 +97,7 @@
                 hreflang="vi"
                 href="/vi/3-write-data-to-dynaomodb/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-resize-image-function/2-3-create-policy-access-s3/</loc>
     <xhtml:link
                 rel="alternate"
@@ -126,9 +109,7 @@
                 hreflang="vi"
                 href="/vi/2-resize-image-function/2-3-create-policy-access-s3/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/4-cleanup/</loc>
     <xhtml:link
                 rel="alternate"
@@ -140,9 +121,7 @@
                 hreflang="vi"
                 href="/vi/4-cleanup/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-resize-image-function/2-4-test-lambda-function/</loc>
     <xhtml:link
                 rel="alternate"
@@ -154,9 +133,7 @@
                 hreflang="vi"
                 href="/vi/2-resize-image-function/2-4-test-lambda-function/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -168,9 +145,7 @@
                 hreflang="vi"
                 href="/vi/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -183,5 +158,4 @@
                 href="/vi/tags/"
                 />
   </url>
-  
 </urlset>

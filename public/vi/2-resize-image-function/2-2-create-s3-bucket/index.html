@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo S3 bucket :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1676370779" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1676370779" rel="stylesheet">
-    <link href="/css/hybrid.css?1676370779" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1676370779" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1676370779" rel="stylesheet">
-    <link href="/css/auto-complete.css?1676370779" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1676370779" rel="stylesheet">
-    <link href="/css/theme.css?1676370779" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1676370779" rel="stylesheet">
+    <link href="/css/nucleus.css?1678161507" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1678161507" rel="stylesheet">
+    <link href="/css/hybrid.css?1678161507" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1678161507" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1678161507" rel="stylesheet">
+    <link href="/css/auto-complete.css?1678161507" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1678161507" rel="stylesheet">
+    <link href="/css/theme.css?1678161507" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1678161507" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1676370779" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1678161507" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1676370779"></script>
+    <script src="/js/jquery-3.3.1.min.js?1678161507"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1676370779"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1676370779"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1678161507"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1678161507"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1676370779"></script>
+<script type="text/javascript" src="/js/search.js?1678161507"></script>
 
     
   </div>
@@ -457,7 +457,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>14-02-2023</font></i>
+        <i><font color=orange>07-03-2023</font></i>
     </left>
     <left>
         <br>
@@ -553,48 +553,56 @@
 <li>Bucket <strong>book-image-resize-store</strong>: để lưu ảnh sau khi thay đổi kích thước</li>
 </ul>
 <ol>
-<li>Mở bảng điều khiển <a href="https://s3.console.aws.amazon.com/s3/get-started?region=ap-southeast-2">Amazon S3</a> 
-<img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-1.png?featherlight=false&amp;width=90pc" alt="S3Console"></li>
-<li>Ấn nút <strong>Create bucket</strong>
-<img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-2.png?featherlight=false&amp;width=90pc" alt="S3Console"></li>
+<li>Mở bảng điều khiển <a href="https://s3.console.aws.amazon.com/s3/get-started?region=ap-southeast-2">Amazon S3</a></li>
+</ol>
+<p><img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-1.png?featherlight=false&amp;width=90pc" alt="S3Console"></p>
+<ol start="2">
+<li>Ấn nút <strong>Create bucket</strong></li>
+</ol>
+<p><img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-2.png?featherlight=false&amp;width=90pc" alt="S3Console"></p>
+<ol start="3">
 <li>Nhập tên cho bucket, <strong>book-image-store</strong></li>
 </ol>
 <ul>
-<li>Chọn vùng gần bạn nhất.
-<img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-3.png?featherlight=false&amp;width=90pc" alt="CreateBucket"></li>
+<li>Chọn vùng gần bạn nhất.</li>
 </ul>
+<p><img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-3.png?featherlight=false&amp;width=90pc" alt="CreateBucket"></p>
 <ol start="4">
 <li>Bỏ chọn chặn truy cập <strong>Block all public access</strong></li>
 </ol>
 <ul>
-<li>Tích vào ô <strong>I acknowledge that the current settings might result in this bucket and the objects within becoming public</strong>
-<img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-4.png?featherlight=false&amp;width=90pc" alt="CreateBucket"></li>
+<li>Tích vào ô <strong>I acknowledge that the current settings might result in this bucket and the objects within becoming public</strong></li>
 </ul>
+<p><img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-4.png?featherlight=false&amp;width=90pc" alt="CreateBucket"></p>
 <ol start="5">
-<li>Ấn nút <strong>Create bucket</strong>
-<img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-5.png?featherlight=false&amp;width=90pc" alt="CreateBucket"></li>
+<li>Ấn nút <strong>Create bucket</strong></li>
+</ol>
+<p><img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-5.png?featherlight=false&amp;width=90pc" alt="CreateBucket"></p>
+<ol start="6">
 <li>Tương tự để tạo bucket <strong>book-image-resize-store</strong>, làm lại các bước từ 1 tới 5.</li>
 <li>Sau khi tạo xong hai bucket, chúng ta thêm trigger cho lambda function tạo ra trước đó</li>
 </ol>
 <ul>
-<li>Ấn vào <strong>Add Trigger</strong>
-<img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-6.png?featherlight=false&amp;width=90pc" alt="AddTrigger"></li>
+<li>Ấn vào <strong>Add Trigger</strong></li>
 </ul>
+<p><img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-6.png?featherlight=false&amp;width=90pc" alt="AddTrigger"></p>
 <ol start="8">
-<li>Nhập <strong>S3</strong> và chọn dịch vụ <strong>S3</strong>
-<img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-7.png?featherlight=false&amp;width=90pc" alt="AddTrigger"></li>
+<li>Nhập <strong>S3</strong> và chọn dịch vụ <strong>S3</strong></li>
+</ol>
+<p><img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-7.png?featherlight=false&amp;width=90pc" alt="AddTrigger"></p>
+<ol start="9">
 <li>Chọn bucket để triger lambda, <strong>book-image-store</strong></li>
 </ol>
 <ul>
 <li>Chọn <strong>All object create events</strong> cho mục <strong>Event type</strong></li>
 <li>Tích chọn <strong>I acknowledge that using&hellip;.</strong> như hình</li>
-<li>Ấn nút <strong>Add</strong>
-<img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-8.png?featherlight=false&amp;width=90pc" alt="AddTrigger"></li>
+<li>Ấn nút <strong>Add</strong></li>
 </ul>
+<p><img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-8.png?featherlight=false&amp;width=90pc" alt="AddTrigger"></p>
 <ol start="10">
-<li>Xem kết quả sau đi thêm trigger cho Lambda function
-<img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-9.png?featherlight=false&amp;width=90pc" alt="Trigger"></li>
+<li>Xem kết quả sau đi thêm trigger cho Lambda function</li>
 </ol>
+<p><img src="/images/2-2-create-s3-bucket/2-2-create-s3-bucket-9.png?featherlight=false&amp;width=90pc" alt="Trigger"></p>
 
 
 
@@ -827,19 +835,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1676370779"></script>
-    <script src="/js/perfect-scrollbar.min.js?1676370779"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1676370779"></script>
-    <script src="/js/jquery.sticky.js?1676370779"></script>
-    <script src="/js/featherlight.min.js?1676370779"></script>
-    <script src="/js/highlight.pack.js?1676370779"></script>
+    <script src="/js/clipboard.min.js?1678161507"></script>
+    <script src="/js/perfect-scrollbar.min.js?1678161507"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1678161507"></script>
+    <script src="/js/jquery.sticky.js?1678161507"></script>
+    <script src="/js/featherlight.min.js?1678161507"></script>
+    <script src="/js/highlight.pack.js?1678161507"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1676370779"></script>
-    <script src="/js/learn.js?1676370779"></script>
-    <script src="/js/hugo-learn.js?1676370779"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1678161507"></script>
+    <script src="/js/learn.js?1678161507"></script>
+    <script src="/js/hugo-learn.js?1678161507"></script>
 
-    <link href="/mermaid/mermaid.css?1676370779" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1676370779"></script>
+    <link href="/mermaid/mermaid.css?1678161507" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1678161507"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

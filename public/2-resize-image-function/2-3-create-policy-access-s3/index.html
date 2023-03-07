@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Create Policy for Lambda function :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1676370778" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1676370778" rel="stylesheet">
-    <link href="/css/hybrid.css?1676370778" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1676370778" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1676370778" rel="stylesheet">
-    <link href="/css/auto-complete.css?1676370778" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1676370778" rel="stylesheet">
-    <link href="/css/theme.css?1676370778" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1676370778" rel="stylesheet">
+    <link href="/css/nucleus.css?1678161507" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1678161507" rel="stylesheet">
+    <link href="/css/hybrid.css?1678161507" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1678161507" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1678161507" rel="stylesheet">
+    <link href="/css/auto-complete.css?1678161507" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1678161507" rel="stylesheet">
+    <link href="/css/theme.css?1678161507" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1678161507" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1676370778" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1678161507" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1676370778"></script>
+    <script src="/js/jquery-3.3.1.min.js?1678161507"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1676370778"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1676370778"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1678161507"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1678161507"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1676370778"></script>
+<script type="text/javascript" src="/js/search.js?1678161507"></script>
 
     
   </div>
@@ -457,7 +457,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>14-02-2023</font></i>
+        <i><font color=orange>07-03-2023</font></i>
     </left>
     <left>
         <br>
@@ -510,7 +510,7 @@
             
           
           
-            <a href='/'>Serverless - Lambda interact with S3 và DynamoDB</a> > <a href='/2-resize-image-function/'>Resize image</a> > Create Policy for Lambda function
+            <a href='/'>Serverless - Lambda interact with S3 and DynamoDB</a> > <a href='/2-resize-image-function/'>Resize image</a> > Create Policy for Lambda function
           
         
           
@@ -553,76 +553,90 @@
 </ol>
 <ul>
 <li>In tab <strong>Configuration</strong>, click <strong>Permissions</strong></li>
-<li>Click on the role being executed by the function
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-1.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>Click on the role being executed by the function</li>
 </ul>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-1.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
 <ol start="2">
 <li>Click <strong>Add permissions</strong></li>
 </ol>
 <ul>
-<li>Select <strong>Attach policies</strong>
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-2.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>Select <strong>Attach policies</strong></li>
 </ul>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-2.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
 <ol start="3">
-<li>Click <strong>Create policy</strong>
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-3.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
-<li>Click <strong>Choose a service</strong>
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-4.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
-<li>Enter <strong>S3</strong>, then select <strong>S3</strong>
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-5.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>Click <strong>Create policy</strong></li>
+</ol>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-3.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
+<ol start="4">
+<li>Click <strong>Choose a service</strong></li>
+</ol>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-4.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
+<ol start="5">
+<li>Enter <strong>S3</strong>, then select <strong>S3</strong></li>
+</ol>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-5.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
+<ol start="6">
 <li>Click <strong>Action</strong>, expand <strong>Read</strong> in <strong>Access level</strong></li>
 </ol>
 <ul>
-<li>Check to <strong>GetObject</strong> permission
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-6.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>Check to <strong>GetObject</strong> permission</li>
 </ul>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-6.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
 <ol start="7">
 <li>Then, expand <strong>Write</strong></li>
 </ol>
 <ul>
-<li>Check to <strong>DeleteObject</strong> permission
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-7.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>Check to <strong>DeleteObject</strong> permission</li>
 </ul>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-7.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
 <ol start="8">
-<li>In <strong>Resource</strong>, click <strong>Add ARN</strong> to specify resources.
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-8.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>In <strong>Resource</strong>, click <strong>Add ARN</strong> to specify resources.</li>
+</ol>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-8.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
+<ol start="9">
 <li>Enter bucket name: <strong>book-image-store</strong></li>
 </ol>
 <ul>
 <li>Check to <strong>Any</strong> to allow permissions for all objects in the bucket</li>
-<li>Click <strong>Add</strong>
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-9.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>Click <strong>Add</strong></li>
 </ul>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-9.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
 <ol start="10">
-<li>Click <strong>Add additional permissions</strong>
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-10.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>Click <strong>Add additional permissions</strong></li>
+</ol>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-10.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
+<ol start="11">
 <li>Repeat steps 4 and 5</li>
 </ol>
 <ul>
-<li>Then, expand <strong>Write</strong>, check to <strong>PutObject</strong> permission
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-11.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>Then, expand <strong>Write</strong>, check to <strong>PutObject</strong> permission</li>
 </ul>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-11.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
 <ol start="12">
-<li>Repeat steps 8 and 9 with bucket name is <strong>book-image-resize-store</strong>
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-12.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
-<li>Click <strong>Next tags</strong>
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-13.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>Repeat steps 8 and 9 with bucket name is <strong>book-image-resize-store</strong></li>
+</ol>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-12.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
+<ol start="13">
+<li>Click <strong>Next tags</strong></li>
+</ol>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-13.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
+<ol start="14">
 <li>Click <strong>Next review</strong></li>
 <li>Enter policy name, such as: <strong>LambdaResizeImageS3Policy</strong></li>
 </ol>
 <ul>
-<li>Review policy information and click <strong>Create policy</strong>
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-14.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></li>
+<li>Review policy information and click <strong>Create policy</strong></li>
 </ul>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-14.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
 <ol start="16">
 <li>Back to adding policy for Lambda function screen, enter the name of the policy we just created.</li>
 </ol>
 <ul>
 <li>Check to the policy: <strong>LambdaResizeImageS3Policy</strong></li>
-<li>Click <strong>Attach policies</strong>
-<img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-15.png?featherlight=false&amp;width=90pc" alt="CreatePolicy">
-We have finished granting the Lambda function read, write, and delete permissions from the S3 bucket. The next step is to test the Lambda function working when uploading an image.</li>
+<li>Click <strong>Attach policies</strong></li>
 </ul>
+<p><img src="/images/2-3-create-policy-access-s3/2-3-create-policy-access-s3-15.png?featherlight=false&amp;width=90pc" alt="CreatePolicy"></p>
+<p>We have finished granting the Lambda function read, write, and delete permissions from the S3 bucket. The next step is to test the Lambda function working when uploading an image.</p>
 
 
 
@@ -855,19 +869,19 @@ We have finished granting the Lambda function read, write, and delete permission
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1676370778"></script>
-    <script src="/js/perfect-scrollbar.min.js?1676370778"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1676370778"></script>
-    <script src="/js/jquery.sticky.js?1676370778"></script>
-    <script src="/js/featherlight.min.js?1676370778"></script>
-    <script src="/js/highlight.pack.js?1676370778"></script>
+    <script src="/js/clipboard.min.js?1678161507"></script>
+    <script src="/js/perfect-scrollbar.min.js?1678161507"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1678161507"></script>
+    <script src="/js/jquery.sticky.js?1678161507"></script>
+    <script src="/js/featherlight.min.js?1678161507"></script>
+    <script src="/js/highlight.pack.js?1678161507"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1676370778"></script>
-    <script src="/js/learn.js?1676370778"></script>
-    <script src="/js/hugo-learn.js?1676370778"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1678161507"></script>
+    <script src="/js/learn.js?1678161507"></script>
+    <script src="/js/hugo-learn.js?1678161507"></script>
 
-    <link href="/mermaid/mermaid.css?1676370778" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1676370778"></script>
+    <link href="/mermaid/mermaid.css?1678161507" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1678161507"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
