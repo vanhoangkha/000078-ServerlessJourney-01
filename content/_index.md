@@ -1,6 +1,6 @@
 ---
 title : "Serverless - Lambda interact with S3 and DynamoDB"
-date :  "`r Sys.Date()`" 
+date: 2024-01-01
 weight : 1 
 chapter : false
 ---
